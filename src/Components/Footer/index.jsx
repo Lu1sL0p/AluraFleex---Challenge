@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { LogoAlura } from "../Logo";
+import { LogoAlura } from "../Generals/Logo";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import FolderSharedIcon from "@mui/icons-material/FolderShared";
@@ -14,7 +14,7 @@ const Box = styled.footer`
   align-items: center;
   justify-content: center;
   gap: 15px;
-  border-top: 1px solid #8a2ce2;
+  border-top: 1px solid #545454;
 `;
 
 const SpanActive = styled.span`

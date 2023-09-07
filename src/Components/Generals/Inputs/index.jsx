@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { TextField, FormControl } from "@mui/material";
-import { primaryColor, black } from "../UI/Variables";
+import { primaryColor, black } from "../../UI/Variables";
 
 export const Input = styled(TextField)`
   background-color: ${black};

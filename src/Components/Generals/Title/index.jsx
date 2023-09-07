@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Title = styled.h1`
   color: ${({ theme }) => theme.text};
   padding-bottom: 50px;
-  font-size: 3rem;
+  font-size: 2.8rem;
+  text-align: justify;
 `;
 
 export const Legend = styled.legend`

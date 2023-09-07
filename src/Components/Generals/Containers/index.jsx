@@ -26,18 +26,3 @@ export const BtnsContainer = styled.div`
     gap: 40px;
     height: 54px;
 `
-
-export const BannerContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 260px 40px 0;
-  gap: 50px;
-  margin-bottom: 65px;
-`
-
-export const PurpleBanner = styled.div`
-  background-color: #8a2ce24b;
-  width: 100%;
-  height: auto;
-  display: flex;
-`

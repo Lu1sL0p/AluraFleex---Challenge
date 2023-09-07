@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Button } from "../Buttons";
-import { LogoAlura } from "../Logo";
+import { Button } from "../Generals/Buttons";
+import { LogoAlura } from "../Generals/Logo";
 
 const Box = styled.header`
   height: 94px;
@@ -10,7 +10,6 @@ const Box = styled.header`
   display: flex;
   justify-content: space-between;
 `;
-
 
 export const Header = () => {
   return (

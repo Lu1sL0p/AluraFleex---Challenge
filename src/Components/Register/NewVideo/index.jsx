@@ -1,11 +1,15 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Input, InputSelect } from "../Inputs";
-import { Legend } from "../Title";
+import { Input, InputSelect } from "../../Generals/Inputs";
+import { Legend } from "../../Generals/Title";
 import { Select, MenuItem, InputLabel } from "@mui/material";
-import { FreshButton, Button } from "../Buttons";
-import { FormContainer, CategoryContainer, BtnsContainer } from "../Containers";
-import { validation } from "../../validations";
+import { FreshButton, Button } from "../../Generals/Buttons";
+import {
+  FormContainer,
+  CategoryContainer,
+  BtnsContainer,
+} from "../../Generals/Containers";
+import { validation } from "../../../validations";
 import { NewCategory } from "../NewCategory/index.";
 
 const CategoryBtn = styled(FreshButton)`

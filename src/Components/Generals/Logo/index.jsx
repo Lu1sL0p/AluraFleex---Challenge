@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Logo from "../../assets/Images/Logo.png";
+import Logo from "../../../assets/Images/Logo.png";
 
 const Image = styled.img`
   height: 100%;

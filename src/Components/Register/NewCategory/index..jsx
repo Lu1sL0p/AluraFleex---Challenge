@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Input } from "../Inputs";
-import { Legend } from "../Title";
-import { Button, FreshButton } from "../Buttons";
-import { CategoryContainer, BtnsContainer } from "../Containers";
-import { validation } from "../../validations";
+import { Input } from "../../Generals/Inputs";
+import { Legend } from "../../Generals/Title";
+import { Button, FreshButton } from "../../Generals/Buttons";
+import { CategoryContainer, BtnsContainer } from "../../Generals/Containers";
+import { validation } from "../../../validations";
 
 export const NewCategory = () => {
   const [title, setTitle] = useState("");

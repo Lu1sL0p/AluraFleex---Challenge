@@ -1,50 +1,58 @@
 import styled from "styled-components";
 import uno from "../../assets/Images/Banner/uno.jpg";
-import { Tag } from "../Tag";
-import { Title } from "../Title";
-import { BannerContainer, PurpleBanner } from "../Containers";
+import { Tag } from "../Generals/Tag";
+import { Title } from "../Generals/Title";
+import { useContext } from "react";
+import { VideoContext } from "../../context";
+import YouTubeVideo from "../Video";
 
 const Img = styled.img`
   height: auto;
   width: 100%;
   display: flex;
-  z-index: -1;
   position: absolute;
+  z-index: -1;
 `;
-
-const PrincipalVideo = styled.div`
-  width: 620px;
-  height: 353px;
-  flex-shrink: 0;
-  border-radius: 5px;
-  border: 2px solid white;
-  background: url("https://hips.hearstapps.com/hmg-prod/images/athlete-doing-push-ups-in-gym-royalty-free-image-1599077740.jpg?crop=1xw:0.56138xh;center,top&resize=1200:*")
-    center/cover no-repeat;
-`;
-
+const BannerContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 120px 40px 65px;
+  gap: 50px;
+  width: 100%;
+  height: auto;
+`
 const Description = styled.p`
   color: ${({ theme }) => theme.text};
-  margin-top: -40px;
-  font-size: 1rem;
+  margin-top: -20px;
+  font-size: 1.2rem;
   text-align: justify;
+`;
+const PrincipalVideo = styled.div`
+width: 540px;
+height: 308px;
+flex-shrink: 0;
+border-radius: 5px;
+border: 4px solid;
+margin-top: 130px;
 `;
 
 export const Banner = () => {
+  const showVideo = useContext(VideoContext);
+
   return (
-    <PurpleBanner>
+    <>
       <Img src={uno} />
       <BannerContainer>
-        <div style={{ width: "60%" }}>
-          <Tag>Pull</Tag>
-          <Title>Challenge React</Title>
-          <Description>
-            Este challenge es una forma de aprendizaje. Es un mecanismo donde
-            podrás comprometerte en la resolución de un problema para poder
-            aplicar todos los conocimientos adquiridos en la formación React.
-          </Description>
+        <div style={{ width: "80%", alignSelf: "flex-start"}}>
+          <Tag style={{backgroundColor: showVideo.bannerVideo.color }}>{showVideo.bannerVideo.title}</Tag>
+          <Title>{showVideo.bannerVideo.titleVideo}</Title>
+          <Description>{showVideo.bannerVideo.description}</Description>
         </div>
-        <PrincipalVideo />
+        <PrincipalVideo style={{borderColor: showVideo.bannerVideo.color}}>
+         <YouTubeVideo />
+        </PrincipalVideo>
       </BannerContainer>
-    </PurpleBanner>
+    </>
   );
 };

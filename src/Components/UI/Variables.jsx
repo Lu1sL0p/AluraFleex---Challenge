@@ -4,7 +4,7 @@ export const black = "#000000ee";
 export const darkText = "#F5F5F5";
 export const darkTextOpacity = "#f5f5f5c3";
 export const darkBackground = "#121212";
-export const darkContainer = "#161025";
+export const darkContainer = "#031105";
 
 export const lightText = "#121212";
 export const lightBackground = "#2a7be4b7";
