@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Input } from "../../Generals/Inputs";
 import { Legend } from "../../Generals/Title";
 import { Button, FreshButton } from "../../Generals/Buttons";
-import { CategoryContainer, BtnsContainer } from "../../Generals/Containers";
+import {BtnsContainer, FormContainer } from "../../Generals/Containers";
 import { validation } from "../../../validations";
 
-export const NewCategory = () => {
+export const NewCategory = ({createCategory}) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [color, setColor] = useState("#000000");
@@ -25,8 +25,15 @@ export const NewCategory = () => {
     },
   });
 
+  const manejarNuevaCategoría = (e) => {
+    e.preventDefault();
+    createCategory({ title, color, description});
+
+    console.log(title, color, description);
+  };
+
   return (
-    <CategoryContainer>
+    <FormContainer onSubmit={manejarNuevaCategoría}>
       <Legend>Nueva categoría</Legend>
       <Input
         fullWidth
@@ -45,11 +52,9 @@ export const NewCategory = () => {
 
       <Input
         fullWidth
-        label="Descripción"
+        label="Músculos a tener en cuenta"
         variant="outlined"
         margin="normal"
-        multiline
-        rows={5}
         value={description}
         onChange={(e) => {
           setDescription(e.target.value);
@@ -90,12 +95,18 @@ export const NewCategory = () => {
         <FreshButton>Guardar</FreshButton>
         <Button
           onClick={() =>
-            validation.handleClearCategory(setTitle, setDescription, setCode, setColor, setErrors)
+            validation.handleClearCategory(
+              setTitle,
+              setDescription,
+              setCode,
+              setColor,
+              setErrors
+            )
           }
         >
           Limpiar
         </Button>
       </BtnsContainer>
-    </CategoryContainer>
+    </FormContainer>
   );
 };

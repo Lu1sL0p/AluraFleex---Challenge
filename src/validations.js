@@ -1,11 +1,11 @@
 function titleValidation(errors, title) {
-  const emptyPattern = /^(\s*.{1,9}\s*)?$/;
+  const emptyPattern = /^(\s*.{1,2}\s*)?$/;
   if (emptyPattern.test(title)) {
     return {
       ...errors,
       title: {
         error: true,
-        message: "Ingrese al menos 10 caracteres",
+        message: "Ingrese al menos 3 caracteres",
       },
     };
   } else {
@@ -62,13 +62,13 @@ function imageValidation(errors, url) {
 }
 
 function descriptionValidation(errors, description) {
-  const emptyPattern = /^(\s*.{1,19}\s*)?$/;
+  const emptyPattern = /^(\s*.{1,5}\s*)?$/;
   if (emptyPattern.test(description)) {
     return {
       ...errors,
       description: {
         error: true,
-        message: "Ingrese al menos 20 caracteres",
+        message: "Ingrese al menos 5 caracteres",
       },
     };
   } else {

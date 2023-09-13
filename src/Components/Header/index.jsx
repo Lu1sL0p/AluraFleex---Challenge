@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Button } from "../Generals/Buttons";
 import { LogoAlura } from "../Generals/Logo";
+import { primaryColor } from "../UI/Variables";
+import { Link, useLocation } from "react-router-dom";
 
 const Box = styled.header`
   height: 94px;
@@ -9,13 +11,22 @@ const Box = styled.header`
   background-color: ${({ theme }) => theme.body};
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid ${primaryColor};
 `;
 
-export const Header = () => {
+export const Header = ({}) => {
+  const location = useLocation();
+
   return (
     <Box>
-      <LogoAlura />
-      <Button>Nuevo Video</Button>
+      <Link to="/">
+        <LogoAlura />
+      </Link>
+      {location.pathname !== "/editcontent" && (
+        <Link to="/editcontent">
+          <Button>Editar contenido</Button>
+        </Link>
+      )}
     </Box>
   );
 };

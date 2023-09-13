@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import YouTubeVideo from "./Components/Video";
+import YouTubeVideo from "./Components/YouTubeVideo";
 
 
 export const VideoContext = createContext();

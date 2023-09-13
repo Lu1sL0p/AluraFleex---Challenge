@@ -4,7 +4,7 @@ import { Tag } from "../Generals/Tag";
 import { Title } from "../Generals/Title";
 import { useContext } from "react";
 import { VideoContext } from "../../context";
-import YouTubeVideo from "../Video";
+import YouTubeVideo from "../YouTubeVideo";
 
 const Img = styled.img`
   height: auto;

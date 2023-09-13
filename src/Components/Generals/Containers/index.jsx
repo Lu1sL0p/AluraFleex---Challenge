@@ -2,17 +2,18 @@ import styled from "styled-components";
 
 export const FormContainer = styled.form`
   background-color: ${({ theme }) => theme.inside};
-  padding: 50px 300px;
+  padding: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-export const CategoryContainer = styled.fieldset`
+export const CategoryContainer = styled.section`
   padding: 0;
-  width: 100%;
-  margin: 30px 0;
+  width: auto;
+  margin: 50px 200px;
+  box-sizing: border-box;
 `;
 
 export const BtnsContainer = styled.div`

@@ -4,10 +4,9 @@ import { Tag } from "../Generals/Tag";
 import { primaryColor, black } from "../UI/Variables";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { v4 as uuidv4 } from "uuid";
-
 import { useContext } from "react";
 import { VideoContext } from "../../context";
+import { Link } from "react-router-dom";
 
 const HeadCategory = styled.div`
   display: flex;
@@ -57,16 +56,23 @@ const VideoText = styled.span`
   color: white;
   margin-bottom: 10px;
 `;
+const TopCard = styled.div`
+  height: 60%;
+  width: 100%;
+  background-color: ${black};
+  transition: all 0.2s ease-in-out;
+`;
 const Card = styled.div`
   width: 300px;
   height: 310px;
   flex-shrink: 0;
   padding: 0 15px;
-`;
-const TopCard = styled.div`
-  height: 60%;
-  width: 100%;
-  background-color: ${black};
+  cursor: pointer;
+  &:hover {
+    ${TopCard} {
+      filter: brightness(66%);
+    }
+  }
 `;
 const Video = styled.img`
   height: 100%;
@@ -76,19 +82,19 @@ const Video = styled.img`
   border-bottom: none;
 `;
 const BotomCard = styled.div`
-height: 40%;
-width: 100%;
-padding: 15px;
-display: flex;
-flex-direction: column;
-text-align: justify;
-background-color: ${black};
-border: 1px solid;
-border-top: none;
-
+  height: 40%;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  background-color: ${black};
+  border: 1px solid;
+  border-top: none;
+  overflow-y: scroll;
 `;
 
-export const Category = ({ title, category, color }) => {
+export const Category = ({ title, category, color, muscle }) => {
   const settings = {
     dots: true,
     infinite: false,
@@ -130,16 +136,15 @@ export const Category = ({ title, category, color }) => {
     0.8`;
 
   const showVideo = useContext(VideoContext);
-  // #8a2ce280
-  // #d3000080
-  // #322bff80
 
   return (
     <ContainerSlider>
       <HeadCategory>
         <Tag style={{ background: color }}>{title}</Tag>
-        <PartCategory>Pecho, hombro & tricep</PartCategory>
-        <AllCategory>Ver todo</AllCategory>
+        <PartCategory>{muscle}</PartCategory>
+        <Link to="/videos" >
+          <AllCategory>Ver todo</AllCategory>
+        </Link>
       </HeadCategory>
       <Slider {...settings}>
         {category.map((video, i) => {
@@ -153,14 +158,14 @@ export const Category = ({ title, category, color }) => {
                   video.title,
                   title,
                   color,
-                  video.video,
+                  video.video
                 );
               }}
             >
               <TopCard>
-                <Video src={video.image} style={{borderColor: colorVideo}} />
+                <Video src={video.image} style={{ borderColor: colorVideo }} />
               </TopCard>
-              <BotomCard style={{borderColor: colorVideo}}>
+              <BotomCard style={{ borderColor: colorVideo }}>
                 <VideoText style={{ fontWeight: "bold" }}>
                   {video.title}
                 </VideoText>

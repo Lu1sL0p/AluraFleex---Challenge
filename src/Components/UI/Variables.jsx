@@ -1,10 +1,10 @@
 export const primaryColor = "#8a2ce2";
-export const black = "#000000ee";
+export const black = "#1F1717";
 
 export const darkText = "#F5F5F5";
 export const darkTextOpacity = "#f5f5f5c3";
-export const darkBackground = "#121212";
-export const darkContainer = "#031105";
+export const darkBackground = "#0C0C0F";
+export const darkContainer = "#08090E";
 
 export const lightText = "#121212";
 export const lightBackground = "#2a7be4b7";
