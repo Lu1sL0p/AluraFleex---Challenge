@@ -3,6 +3,10 @@ import { Button } from "../Generals/Buttons";
 import { LogoAlura } from "../Generals/Logo";
 import { primaryColor } from "../UI/Variables";
 import { Link, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { VideoContext } from "../../context";
+import { texto, texto2 } from "../../context";
+import YouTubeVideo from "../YouTubeVideo";
 
 const Box = styled.header`
   height: 94px;
@@ -16,10 +20,23 @@ const Box = styled.header`
 
 export const Header = ({}) => {
   const location = useLocation();
+  const showVideo = useContext(VideoContext);
 
   return (
     <Box>
-      <Link to="/">
+      <Link
+        to="/"
+        onClick={({}) => {
+          showVideo.value(
+            YouTubeVideo,
+            texto,
+            texto2,
+            "Motivación",
+            "#8a2ce280",
+            "O_i7qReBPT8"
+          );
+        }}
+      >
         <LogoAlura />
       </Link>
       {location.pathname !== "/editcontent" && (

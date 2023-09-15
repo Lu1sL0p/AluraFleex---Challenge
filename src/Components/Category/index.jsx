@@ -21,7 +21,6 @@ const PartCategory = styled.span`
 `;
 const AllCategory = styled.a`
   color: ${({ theme }) => theme.text};
-  margin-left: auto;
   cursor: pointer;
   font-size: 1.25rem;
   display: inline-block;
@@ -52,21 +51,22 @@ const ContainerSlider = styled.section`
   margin: 30px 70px;
   box-sizing: border-box;
 `;
-const VideoText = styled.span`
+export const VideoText = styled.span`
   color: white;
   margin-bottom: 10px;
 `;
-const TopCard = styled.div`
+export const TopCard = styled.div`
   height: 60%;
   width: 100%;
   background-color: ${black};
   transition: all 0.2s ease-in-out;
 `;
-const Card = styled.div`
+export const Card = styled.div`
   width: 300px;
   height: 310px;
   flex-shrink: 0;
   padding: 0 15px;
+  margin: 30px 0;
   cursor: pointer;
   &:hover {
     ${TopCard} {
@@ -74,14 +74,14 @@ const Card = styled.div`
     }
   }
 `;
-const Video = styled.img`
+export const Video = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
   border: 1.5px solid;
   border-bottom: none;
 `;
-const BotomCard = styled.div`
+export const BotomCard = styled.div`
   height: 40%;
   width: 100%;
   padding: 15px;
@@ -142,8 +142,22 @@ export const Category = ({ title, category, color, muscle }) => {
       <HeadCategory>
         <Tag style={{ background: color }}>{title}</Tag>
         <PartCategory>{muscle}</PartCategory>
-        <Link to="/videos" >
-          <AllCategory>Ver todo</AllCategory>
+        <Link to="/videos" style={{ marginLeft: "auto" }}>
+          <AllCategory
+            onClick={({}) => {
+              showVideo.value(
+                "",
+                "",
+                "",
+                title,
+                "",
+                ""
+              );
+              console.log(showVideo.bannerVideo.title)
+            }}
+          >
+            Ver todo
+          </AllCategory>
         </Link>
       </HeadCategory>
       <Slider {...settings}>
