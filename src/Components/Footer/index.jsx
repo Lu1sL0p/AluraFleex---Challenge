@@ -7,6 +7,8 @@ import { primaryColor } from "../UI/Variables";
 import { Link } from "react-router-dom";
 import { texto, texto2 } from "../../context";
 import YouTubeVideo from "../YouTubeVideo";
+import { useContext } from "react";
+import { VideoContext } from "../../context";
 
 const Box = styled.footer`
   height: auto;
@@ -36,7 +38,10 @@ const HoverIcon = styled.div`
   }
 `;
 
+
 export const Footer = () => {
+  const showVideo = useContext(VideoContext);
+  
   return (
     <Box>
       <Link

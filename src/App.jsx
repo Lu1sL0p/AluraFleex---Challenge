@@ -8,9 +8,9 @@ import { Banner } from "./Components/Banner";
 import { Category } from "./Components/Category";
 import { Register } from "./Components/Register";
 import { Videos } from "./Components/Videos";
-import { v4 as uuidv4 } from "uuid";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { bdCategory, bdVideo } from "./bd";
+
 
 function App() {
   const [theme, setTheme] = useState(true);
@@ -59,7 +59,7 @@ function App() {
               />
             }
           />
-          <Route path="/videos" element={<Videos />}/>
+          <Route path="/videos" element={<Videos />} />
         </Routes>
         <Footer />
       </Router>

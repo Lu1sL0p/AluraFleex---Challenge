@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { bdVideo } from "../../bd";
-import { Card, TopCard, BotomCard, Video, VideoText } from "../Category";
+import { Card, TopCard, BotomCard, Video, VideoText } from "../Card";
 import { CategoryContainer } from "../Generals/Containers";
 import { useContext } from "react";
 import { VideoContext } from "../../context";

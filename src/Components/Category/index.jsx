@@ -7,6 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { useContext } from "react";
 import { VideoContext } from "../../context";
 import { Link } from "react-router-dom";
+import { Pop } from "@mui/material";
+
 
 const HeadCategory = styled.div`
   display: flex;
@@ -145,15 +147,8 @@ export const Category = ({ title, category, color, muscle }) => {
         <Link to="/videos" style={{ marginLeft: "auto" }}>
           <AllCategory
             onClick={({}) => {
-              showVideo.value(
-                "",
-                "",
-                "",
-                title,
-                "",
-                ""
-              );
-              console.log(showVideo.bannerVideo.title)
+              showVideo.value("", "", "", title, "", "");
+              console.log(showVideo.bannerVideo.title);
             }}
           >
             Ver todo
@@ -189,6 +184,7 @@ export const Category = ({ title, category, color, muscle }) => {
           );
         })}
       </Slider>
+      
     </ContainerSlider>
   );
 };

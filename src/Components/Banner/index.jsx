@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { VideoContext } from "../../context";
 import YouTubeVideo from "../YouTubeVideo";
 
+
 const Img = styled.img`
   height: auto;
   width: 100%;
