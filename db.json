@@ -1,18 +1,5 @@
 {
-  "category": [
-    {
-      "id": "1a3f7d2b-75c3-4b5f-92f4-683418d58c12",
-      "title": "Pull",
-      "description": "Espalda, bícep & antebrazo",
-      "color": "#d3000080"
-    },
-    {
-      "id": "b7e08a2f-8f2d-4dcb-9f0e-75f45a45b11f",
-      "title": "Push",
-      "description": "Pecho, hombro & trícep",
-      "color": "#322bff80"
-    }
-  ],
+  "category": [],
   "video": [
     {
       "id": "cd23a924-3a3d-4e91-bc84-18e33d14cdef",
@@ -20,7 +7,7 @@
       "image": "https://i.ytimg.com/vi/x2Y6Mb41zjY/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAr7RYI0vNtzyddeA6K5bD4pDCSbw",
       "title": "Jalón al pecho",
       "description": "Aprende errores comunes, variantes y mucho más del jalón al pecho en polea alta. Uno de los ejercicios más importantes y cuando de trabajar la espalda se trata.",
-      "video": "https://www.youtube.com/watch?v=x2Y6Mb41zjY"
+      "link": "https://www.youtube.com/watch?v=x2Y6Mb41zjY"
     },
     {
       "id": "5e04bce6-8ea3-49d3-8325-5e39f9ee7e1b",
@@ -28,7 +15,7 @@
       "image": "https://i.ytimg.com/vi/u6zqhOLK-Jg/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDLXeu7zGUDTYGULTz2YCvKf_q45g",
       "title": "Dominadas",
       "description": "¿Cómo hacer dominadas? Aquí lo aprenderás, no solo porque es un ejercicio complejo, sino porque también es uno de los que más llama la atención.",
-      "video": "https://www.youtube.com/watch?v=u6zqhOLK-Jg"
+      "link": "https://www.youtube.com/watch?v=u6zqhOLK-Jg"
     },
     {
       "id": "a7404461-1b0f-4f6e-90eb-8572ab8d849d",
@@ -36,7 +23,7 @@
       "image": "https://i.ytimg.com/vi/3uiWjik2yEQ/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDjPADjDt086Fq9rjc5u663wqGk2Q",
       "title": "Remo con barra",
       "description": "Deja de lesionarte los lumbares al hacer Remo con Barra. Decubre como evitar este y otros problemas por una mala técnica con este video.",
-      "video": "https://www.youtube.com/watch?v=3uiWjik2yEQ"
+      "link": "https://www.youtube.com/watch?v=3uiWjik2yEQ"
     },
     {
       "id": "72b5cb9d-d8c7-4fc1-81e0-88f857697d21",
@@ -44,7 +31,7 @@
       "image": "https://i.ytimg.com/vi/X-xCQ1gh-kA/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDnxVsRjyQW8GfzH92gD5TBvziPCw",
       "title": "Face Pull",
       "description": "Has tu Face-Pull así si quieres trabajar al 100% tu espalda, ¡No te arrepentirás!",
-      "video": "https://www.youtube.com/watch?v=X-xCQ1gh-kA"
+      "link": "https://www.youtube.com/watch?v=X-xCQ1gh-kA"
     },
     {
       "id": "92be70f4-cd8d-44b5-bb8e-56b244522693",
@@ -52,7 +39,7 @@
       "image": "https://i.ytimg.com/vi/PY9QylAMtyE/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC-cMHfnB1JPvNLDPWL0xPpKDB2KQ",
       "title": "Curl de bícep con barra",
       "description": "¿Quieres unos brazos grandes? Aprende a hacer el curl con barra y empieza a moler esos Bíceps.",
-      "video": "https://www.youtube.com/watch?v=PY9QylAMtyE"
+      "link": "https://www.youtube.com/watch?v=PY9QylAMtyE"
     },
     {
       "id": "4da81df1-9d72-4aaf-871d-9d4ef350f98f",
@@ -60,7 +47,7 @@
       "image": "https://i.ytimg.com/vi/de4AdSz4gcU/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBab-4dSIk93HLUcqqgvN5YroWXYw",
       "title": "Curl martillo con mancuerna",
       "description": "Uno de los ejercicios que trabajará tus antebrazos y bíceps es el curl martillo, aprende su técnica ahora mismo.",
-      "video": "https://www.youtube.com/watch?v=de4AdSz4gcU"
+      "link": "https://www.youtube.com/watch?v=de4AdSz4gcU"
     },
     {
       "id": "5bfb3c60-7322-4e1c-a3f4-aa697d3a7f7f",
@@ -68,7 +55,7 @@
       "image": "https://i.ytimg.com/vi/GeLq8cMODLc/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCzqkSd9On49Q98fwvrApLG4IDiaw",
       "title": "Press de banca",
       "description": "Uno de los ejercicios más completos cuando de trabajar el pecho se trata. El press de banca es un ejercicio que no puede faltar en tu rutina.",
-      "video": "https://www.youtube.com/watch?v=GeLq8cMODLc"
+      "link": "https://www.youtube.com/watch?v=GeLq8cMODLc"
     },
     {
       "id": "b5ab6d27-e439-4a13-a12b-6dbdb02e4a05",
@@ -76,7 +63,7 @@
       "image": "https://i.ytimg.com/vi/vPpezjmMzDs/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBwL3wiK5e4yQ4Yp55pULh0U9ztCg",
       "title": "Push down con soga",
       "description": "Uno de los ejercicios que más trabajará tus tríceps es el jalón con soga en polea alta, deja de cometer errores y hazlo correctamente.",
-      "video": "https://www.youtube.com/watch?v=vPpezjmMzDs"
+      "link": "https://www.youtube.com/watch?v=vPpezjmMzDs"
     },
     {
       "id": "86a30a9c-cd6d-4525-8e62-3b17f6cc9181",
@@ -84,7 +71,7 @@
       "image": "https://i.ytimg.com/vi/jWnGhz1f5D4/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBJcq7CLNPPi8fXbo7sFuEdRV2sjw",
       "title": "Press inclinado con mancuerna",
       "description": "Descubre como hacer press para pecho con mancuerna en un banco inclinado, destroza tus pectorales con este ejercicio mega eficiente.",
-      "video": "https://www.youtube.com/watch?v=jWnGhz1f5D4"
+      "link": "https://www.youtube.com/watch?v=jWnGhz1f5D4"
     },
     {
       "id": "ba6f21aa-340a-4e01-bc9f-2e490c4f2d2c",
@@ -92,7 +79,7 @@
       "image": "https://i.ytimg.com/vi/GELRUlUSxeI/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAT_EpIPq8S5PTDdsCJeFI37g8OJQ",
       "title": "Press militar con mancuerna",
       "description": "Si quieres desarrollar tus hombros, un ejercicios que no puedes pasar por alto es el press militar. Aprende cómo hacer este eficiente ejercicio con mancuernas.",
-      "video": "https://www.youtube.com/watch?v=GELRUlUSxeI"
+      "link": "https://www.youtube.com/watch?v=GELRUlUSxeI"
     },
     {
       "id": "7f346bc0-9e14-4f5d-a7d9-1d8ac26a5b07",
@@ -100,7 +87,7 @@
       "image": "https://i.ytimg.com/vi/2FFErVTJb3c/hq720.jpg?sqp=-oaymwE2COgCEMoBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgBtgiAAoAPigIMCAAQARhQIGUoPDAP&rs=AOn4CLDu6aIdX4VmPIFn5hGTdNmwCQFwjw",
       "title": "Elevación lateral en polea baja",
       "description": "Un ejercicio que sin duda alguna va a destrozar tus hombros es la elevación lateral con polea, aprende cómo hacerlo, y ejecútalo para que sientas arder tus hombros.",
-      "video": "https://www.youtube.com/watch?v=2FFErVTJb3c"
+      "link": "https://www.youtube.com/watch?v=2FFErVTJb3c"
     },
     {
       "id": "f77f552d-961a-4963-a158-ea28d4a16e6d",
@@ -108,7 +95,15 @@
       "image": "https://i.ytimg.com/vi/hgLpdwMtEEs/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBBb4HUoaT0ZsTnaaDQV9EwL90_dQ",
       "title": "Elevación lateral con mancuerna",
       "description": "Uno de los ejercicios que no puedes saltarte al trabajar tus hombros son las elevaciones laterales con mancuerna, aprende cómo hacerla.",
-      "video": "https://www.youtube.com/watch?v=hgLpdwMtEEs"
+      "link": "https://www.youtube.com/watch?v=hgLpdwMtEEs"
+    },
+    {
+      "id": "efdea1e9-7673-40b0-8b55-3a38cfeada53",
+      "title": "adfasdfads",
+      "link": "http://localhost:5173/editcontent",
+      "image": "http://localhost:5173/editcontenthttp://localhost:5173/editcontent",
+      "category": "Base de datos",
+      "description": "http://localhost:5173/editcontenthttp://localhost:5173/editcontent"
     }
   ]
 }

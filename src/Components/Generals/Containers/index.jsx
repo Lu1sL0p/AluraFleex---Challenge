@@ -12,8 +12,9 @@ export const FormContainer = styled.form`
 export const CategoryContainer = styled.section`
   padding: 0;
   width: auto;
-  margin: 50px 200px;
+  padding: 50px;
   box-sizing: border-box;
+  background-color: transparent;
 `;
 
 export const BtnsContainer = styled.div`

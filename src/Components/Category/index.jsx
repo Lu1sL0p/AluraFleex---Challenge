@@ -1,14 +1,13 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
 import { Tag } from "../Generals/Tag";
-import { primaryColor, black } from "../UI/Variables";
+import { primaryColor } from "../UI/Variables";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useContext } from "react";
 import { VideoContext } from "../../context";
 import { Link } from "react-router-dom";
-import { Pop } from "@mui/material";
-
+import Pop from "../Popover";
 
 const HeadCategory = styled.div`
   display: flex;
@@ -20,6 +19,7 @@ const HeadCategory = styled.div`
 const PartCategory = styled.span`
   color: ${({ theme }) => theme.text};
   font-size: 1.25rem;
+  font-style: italic;
 `;
 const AllCategory = styled.a`
   color: ${({ theme }) => theme.text};
@@ -53,47 +53,17 @@ const ContainerSlider = styled.section`
   margin: 30px 70px;
   box-sizing: border-box;
 `;
-export const VideoText = styled.span`
-  color: white;
-  margin-bottom: 10px;
-`;
-export const TopCard = styled.div`
-  height: 60%;
-  width: 100%;
-  background-color: ${black};
-  transition: all 0.2s ease-in-out;
-`;
 export const Card = styled.div`
   width: 300px;
-  height: 310px;
+  height: auto;
   flex-shrink: 0;
   padding: 0 15px;
-  margin: 30px 0;
+  margin: 30px 0 0;
   cursor: pointer;
+  transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
   &:hover {
-    ${TopCard} {
-      filter: brightness(66%);
-    }
+    transform: translateY(-20px);
   }
-`;
-export const Video = styled.img`
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border: 1.5px solid;
-  border-bottom: none;
-`;
-export const BotomCard = styled.div`
-  height: 40%;
-  width: 100%;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  text-align: justify;
-  background-color: ${black};
-  border: 1px solid;
-  border-top: none;
-  overflow-y: scroll;
 `;
 
 export const Category = ({ title, category, color, muscle }) => {
@@ -131,12 +101,6 @@ export const Category = ({ title, category, color, muscle }) => {
       },
     ],
   };
-  const colorVideo = `rgba(
-    ${parseInt(color.slice(1, 3), 16)},
-    ${parseInt(color.slice(3, 5), 16)},
-    ${parseInt(color.slice(5, 7), 16)},
-    0.8`;
-
   const showVideo = useContext(VideoContext);
 
   return (
@@ -148,7 +112,6 @@ export const Category = ({ title, category, color, muscle }) => {
           <AllCategory
             onClick={({}) => {
               showVideo.value("", "", "", title, "", "");
-              console.log(showVideo.bannerVideo.title);
             }}
           >
             Ver todo
@@ -171,20 +134,16 @@ export const Category = ({ title, category, color, muscle }) => {
                 );
               }}
             >
-              <TopCard>
-                <Video src={video.image} style={{ borderColor: colorVideo }} />
-              </TopCard>
-              <BotomCard style={{ borderColor: colorVideo }}>
-                <VideoText style={{ fontWeight: "bold" }}>
-                  {video.title}
-                </VideoText>
-                <VideoText>{video.description}</VideoText>
-              </BotomCard>
+              <Pop
+                description={video.description}
+                image={video.image}
+                color={color}
+                title={video.title}
+              />
             </Card>
           );
         })}
       </Slider>
-      
     </ContainerSlider>
   );
 };

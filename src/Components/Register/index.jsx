@@ -1,10 +1,10 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { NewCategory } from "./NewCategory/index.";
 import { NewVideo } from "./NewVideo";
 import { FreshButton } from "../Generals/Buttons";
 import { CategoryContainer } from "../Generals/Containers";
-import { useState } from "react";
-
+import { TableContent } from "./TableContent";
 
 const CategoryBtn = styled(FreshButton)`
   width: 250px;
@@ -14,23 +14,33 @@ const CategoryBtn = styled(FreshButton)`
   z-index: 200;
 `;
 
-export const Register = ({createCategory, registerVideo, categories}) => {
+export const Register = ({ categories, muscle, id }) => {
   const [register, setRegister] = useState({
     state: true,
-    text: "Nueva Categoría"
-  })
+    text: "Nueva Categoría",
+  });
 
   const handleRegister = () => {
     setRegister({
       state: !register.state,
-      text: register.state ? "Nuevo  Video" : "Nueva Categoría"
-    })
-  }
+      text: register.state ? "Nuevo  Video" : "Nueva Categoría",
+    });
+  };
 
   return (
     <CategoryContainer>
-      {register.state ? <NewVideo registerVideo={registerVideo} categories={categories}/> : <NewCategory createCategory={createCategory}/>}
-      <CategoryBtn style={{ marginLeft: "auto" }} onClick={() => handleRegister()}>{register.text}</CategoryBtn>
+      {register.state ? (
+        <NewVideo categories={categories} />
+      ) : (
+        <NewCategory />
+      )}
+      <CategoryBtn
+        style={{ marginLeft: "auto" }}
+        onClick={() => handleRegister()}
+      >
+        {register.text}
+      </CategoryBtn>
+      <TableContent  categories={categories} muscle={muscle} id={id}/>
     </CategoryContainer>
   );
 };

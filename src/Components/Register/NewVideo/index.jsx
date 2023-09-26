@@ -6,13 +6,14 @@ import { FreshButton, Button } from "../../Generals/Buttons";
 import { FormContainer, BtnsContainer } from "../../Generals/Containers";
 import { validation } from "../../../validations";
 import { Options } from "../Options";
+import { clientVideo } from "../../../Controllers";
 
 const CleanBtn = styled(Button)`
   height: 54px;
   width: 180px;
 `;
 
-export const NewVideo = ({ registerVideo, categories }) => {
+export const NewVideo = ({ categories }) => {
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
   const [image, setImage] = useState("");
@@ -47,7 +48,11 @@ export const NewVideo = ({ registerVideo, categories }) => {
     <FormContainer
       onSubmit={(e) => {
         e.preventDefault();
-        registerVideo({ title, video: link, image, category, description });
+        clientVideo.createVideo(title, link, image, category, description).then(() => {
+          console.log("Registrado en la BD")
+        }).catch((err) => {
+          console.log("El error es: ", err)
+        })
       }}
     >
       <Legend>Nuevo video</Legend>

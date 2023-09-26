@@ -1,28 +1,46 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { darkTheme, lightTheme } from "./Components/UI/themes";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./globalStyle";
 import { Header } from "./Components/Header";
 import { Footer } from "./Components/Footer";
 import { Banner } from "./Components/Banner";
-import { Category } from "./Components/Category";
 import { Register } from "./Components/Register";
 import { Videos } from "./Components/Videos";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { bdCategory, bdVideo } from "./bd";
-
+import { clientCategory, clientVideo } from "./Controllers";
+import { Category } from "./Components/Category";
 
 function App() {
   const [theme, setTheme] = useState(true);
 
-  const [categories, setCategories] = useState(bdCategory);
-  const [datos, setDatos] = useState(bdVideo);
-  const crearCategoria = (newCategory) => {
-    setCategories([...categories, { ...newCategory }]);
-  };
-  const registerVideo = (video) => {
-    setDatos([...datos, video]);
-  };
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await clientCategory.detailCategory();
+        setCategories(data);
+      } catch (error) {
+        console.error("Error al obtener los datos de categoría:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const [datos, setDatos] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await clientVideo.detailVideo();
+        setDatos(data);
+      } catch (error) {
+        console.error("Error al obtener los datos de categoría:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <ThemeProvider theme={theme ? darkTheme : lightTheme}>
@@ -35,15 +53,13 @@ function App() {
             element={
               <>
                 <Banner />
-                {categories.map((category, i) => (
+                {categories.map(({ id, title, description, color }) => (
                   <Category
-                    key={i}
-                    color={category.color}
-                    title={category.title}
-                    muscle={category.description}
-                    category={datos.filter(
-                      (card) => card.category === category.title
-                    )}
+                    key={id}
+                    color={color}
+                    title={title}
+                    muscle={description}
+                    category={datos.filter((card) => card.category === title)}
                   />
                 ))}
               </>
@@ -53,9 +69,9 @@ function App() {
             path="editcontent"
             element={
               <Register
-                createCategory={crearCategoria}
-                registerVideo={registerVideo}
-                categories={categories.map((category) => category.title)}
+                categories={categories.map(({title}) => title)}
+                muscle={categories.map(({description}) => description)}
+                id={categories.map(({id}) => id)}
               />
             }
           />

@@ -4,6 +4,7 @@ import { Legend } from "../../Generals/Title";
 import { Button, FreshButton } from "../../Generals/Buttons";
 import {BtnsContainer, FormContainer } from "../../Generals/Containers";
 import { validation } from "../../../validations";
+import { clientCategory } from "../../../Controllers";
 
 export const NewCategory = ({createCategory}) => {
   const [title, setTitle] = useState("");
@@ -24,12 +25,11 @@ export const NewCategory = ({createCategory}) => {
       message: "",
     },
   });
-
   const manejarNuevaCategoría = (e) => {
     e.preventDefault();
-    createCategory({ title, color, description});
-
-    console.log(title, color, description);
+    clientCategory.createCategory(title, description, color).then(() => {
+      console.log("Se ha registrado en la bd")
+    }).catch((err) => console.log("Este es el error: ", err))
   };
 
   return (
@@ -108,5 +108,6 @@ export const NewCategory = ({createCategory}) => {
         </Button>
       </BtnsContainer>
     </FormContainer>
+    
   );
 };
