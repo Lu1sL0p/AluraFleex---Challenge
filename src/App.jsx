@@ -10,6 +10,7 @@ import { Videos } from "./Components/Videos";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { clientCategory, clientVideo } from "./Controllers";
 import { Category } from "./Components/Category";
+import { EditCategory } from "./Components/Register/EditCategory/index.";
 
 function App() {
   const [theme, setTheme] = useState(true);
@@ -69,13 +70,14 @@ function App() {
             path="editcontent"
             element={
               <Register
-                categories={categories.map(({title}) => title)}
-                muscle={categories.map(({description}) => description)}
-                id={categories.map(({id}) => id)}
+                categories={categories.map(({ title }) => title)}
+                muscle={categories.map(({ description }) => description)}
+                id={categories.map(({ id }) => id)}
               />
             }
           />
           <Route path="/videos" element={<Videos />} />
+          <Route path="/editCategory/:id" element={<EditCategory />} />
         </Routes>
         <Footer />
       </Router>

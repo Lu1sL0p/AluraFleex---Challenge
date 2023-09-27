@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Input } from "../../Generals/Inputs";
 import { Legend } from "../../Generals/Title";
 import { Button, FreshButton } from "../../Generals/Buttons";
-import {BtnsContainer, FormContainer } from "../../Generals/Containers";
+import { BtnsContainer, FormContainer } from "../../Generals/Containers";
 import { validation } from "../../../validations";
 import { clientCategory } from "../../../Controllers";
+import { Snackbar, Alert } from "@mui/material";
 
-export const NewCategory = ({createCategory}) => {
+export const NewCategory = ({}) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [color, setColor] = useState("#000000");
@@ -27,9 +28,35 @@ export const NewCategory = ({createCategory}) => {
   });
   const manejarNuevaCategoría = (e) => {
     e.preventDefault();
-    clientCategory.createCategory(title, description, color).then(() => {
-      console.log("Se ha registrado en la bd")
-    }).catch((err) => console.log("Este es el error: ", err))
+    clientCategory
+      .createCategory(title, description, color)
+      .then(() => {
+        handleClickSuccess();
+      })
+      .catch((err) => {
+        handleClickFailure();
+      });
+  };
+
+  const [openSuccess, setOpenSuccess] = useState(false);
+  const handleClickSuccess = () => {
+    setOpenSuccess(true);
+  };
+  const handleCloseSuccess = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpenSuccess(false);
+  };
+  const [openFailure, setOpenFailure] = useState(false);
+  const handleClickFailure = () => {
+    setOpenFailure(true);
+  };
+  const handleCloseFailure = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpenFailure(false);
   };
 
   return (
@@ -107,7 +134,24 @@ export const NewCategory = ({createCategory}) => {
           Limpiar
         </Button>
       </BtnsContainer>
+      <Snackbar
+        open={openSuccess}
+        autoHideDuration={3000}
+        onClose={handleCloseSuccess}
+      >
+        <Alert onClose={handleCloseSuccess} severity="success">
+          Categoría registrada con éxito
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={openFailure}
+        autoHideDuration={3000}
+        onClose={handleCloseFailure}
+      >
+        <Alert onClose={handleCloseFailure} severity="error">
+          Ocurrió un error
+        </Alert>
+      </Snackbar>
     </FormContainer>
-    
   );
 };

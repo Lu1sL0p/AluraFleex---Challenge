@@ -9,7 +9,7 @@ import { TableContent } from "./TableContent";
 const CategoryBtn = styled(FreshButton)`
   width: 250px;
   height: 54px;
-  margin-top: -54px;
+  margin: -54px 0 50px;
   display: flex;
   z-index: 200;
 `;
@@ -29,18 +29,18 @@ export const Register = ({ categories, muscle, id }) => {
 
   return (
     <CategoryContainer>
-      {register.state ? (
-        <NewVideo categories={categories} />
-      ) : (
-        <NewCategory />
-      )}
+      {register.state ? <NewVideo categories={categories} /> : <NewCategory />}
       <CategoryBtn
         style={{ marginLeft: "auto" }}
         onClick={() => handleRegister()}
       >
         {register.text}
       </CategoryBtn>
-      <TableContent  categories={categories} muscle={muscle} id={id}/>
+      {register.state ? (
+        <></>
+      ) : (
+        <TableContent categories={categories} muscle={muscle} id={id} />
+      )}
     </CategoryContainer>
   );
 };

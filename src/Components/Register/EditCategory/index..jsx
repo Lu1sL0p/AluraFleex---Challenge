@@ -1,36 +1,20 @@
-import { useState } from "react";
-import styled from "styled-components";
+import { useState, useEffect } from "react";
 import { Input } from "../../Generals/Inputs";
 import { Legend } from "../../Generals/Title";
-import { FreshButton, Button } from "../../Generals/Buttons";
-import { FormContainer, BtnsContainer } from "../../Generals/Containers";
+import { Button, FreshButton } from "../../Generals/Buttons";
+import { BtnsContainer, FormContainer } from "../../Generals/Containers";
 import { validation } from "../../../validations";
-import { Options } from "../Options";
-import { clientVideo } from "../../../Controllers";
+import { clientCategory } from "../../../Controllers";
+import { useParams } from "react-router-dom";
 import { Snackbar, Alert } from "@mui/material";
 
-const CleanBtn = styled(Button)`
-  height: 54px;
-  width: 180px;
-`;
-
-export const NewVideo = ({ categories }) => {
+export const EditCategory = ({}) => {
   const [title, setTitle] = useState("");
-  const [link, setLink] = useState("");
-  const [image, setImage] = useState("");
-  const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
+  const [color, setColor] = useState("#000000");
   const [code, setCode] = useState("");
   const [errors, setErrors] = useState({
     title: {
-      error: false,
-      message: "",
-    },
-    link: {
-      error: false,
-      message: "",
-    },
-    image: {
       error: false,
       message: "",
     },
@@ -43,6 +27,20 @@ export const NewVideo = ({ categories }) => {
       message: "",
     },
   });
+  const manejarNuevaCategoría = (e) => {
+    e.preventDefault();
+  };
+
+  const [category, setCategory] = useState({});
+  const { id } = useParams();
+  useEffect(() => {
+    clientCategory.buscar(`/category/${id}`, (data) => {
+      setTitle(data.title);
+      setDescription(data.description);
+      setColor(data.color);
+      setCategory(data);
+    });
+  }, [id]);
 
   const [openSuccess, setOpenSuccess] = useState(false);
   const handleClickSuccess = () => {
@@ -66,28 +64,20 @@ export const NewVideo = ({ categories }) => {
   };
 
   return (
-    <FormContainer
-      onSubmit={(e) => {
-        e.preventDefault();
-        clientVideo
-          .createVideo(title, link, image, category, description)
-          .then(() => {
-            handleClickSuccess();
-          })
-          .catch((err) => {
-            handleClickFailure();
-          });
-      }}
-    >
-      <Legend>Nuevo video</Legend>
+    <FormContainer onSubmit={manejarNuevaCategoría} style={{ padding: "50px" }}>
+      <Legend>Editar categoría</Legend>
       <Input
         fullWidth
-        label="Título del video"
         variant="outlined"
         margin="normal"
+        label="Nombre"
         value={title}
         onChange={(e) => {
           setTitle(e.target.value);
+          setCategory((prevCategory) => ({
+            ...prevCategory,
+            title: e.target.value,
+          }));
           setErrors(validation.titleValidation({ ...errors }, e.target.value));
         }}
         error={errors.title.error}
@@ -96,45 +86,16 @@ export const NewVideo = ({ categories }) => {
       />
       <Input
         fullWidth
-        label="Link del video"
+        label="Músculos a tener en cuenta"
         variant="outlined"
         margin="normal"
-        value={link}
-        onChange={(e) => {
-          setLink(e.target.value);
-          setErrors(validation.urlValdiation({ ...errors }, e.target.value));
-        }}
-        error={errors.link.error}
-        helperText={errors.link.message}
-      />
-      <Input
-        fullWidth
-        label="Link de la imagen video"
-        variant="outlined"
-        margin="normal"
-        value={image}
-        onChange={(e) => {
-          setImage(e.target.value);
-          setErrors(validation.imageValidation({ ...errors }, e.target.value));
-        }}
-        error={errors.image.error}
-        helperText={errors.image.message}
-      />
-      <Options
-        categories={categories}
-        value={category}
-        updateCategory={setCategory}
-      />
-      <Input
-        fullWidth
-        label="Descripción"
-        variant="outlined"
-        margin="normal"
-        multiline
-        rows={5}
         value={description}
         onChange={(e) => {
           setDescription(e.target.value);
+          setCategory((prevCategory) => ({
+            ...prevCategory,
+            description: e.target.value,
+          }));
           setErrors(
             validation.descriptionValidation({ ...errors }, e.target.value)
           );
@@ -142,6 +103,20 @@ export const NewVideo = ({ categories }) => {
         error={errors.description.error}
         helperText={errors.description.message}
         type="text"
+      />
+      <Input
+        type="color"
+        fullWidth
+        margin="normal"
+        label="Color"
+        value={color}
+        onChange={(e) => {
+          setColor(e.target.value);
+          setCategory((prevCategory) => ({
+            ...prevCategory,
+            color: e.target.value,
+          }));
+        }}
       />
       <Input
         fullWidth
@@ -158,21 +133,33 @@ export const NewVideo = ({ categories }) => {
         type="number"
       />
       <BtnsContainer>
-        <FreshButton>Guardar</FreshButton>
-        <CleanBtn
+        <FreshButton
+          onClick={() => {
+            clientCategory
+              .updateCategory(category)
+              .then((response) => {
+                handleClickSuccess();
+              })
+              .catch((error) => {
+                handleClickFailure();
+              });
+          }}
+        >
+          Editar
+        </FreshButton>
+        <Button
           onClick={() =>
-            validation.handleClearVideo(
+            validation.handleClearCategory(
               setTitle,
-              setLink,
-              setImage,
               setDescription,
               setCode,
+              setColor,
               setErrors
             )
           }
         >
           Limpiar
-        </CleanBtn>
+        </Button>
       </BtnsContainer>
       <Snackbar
         open={openSuccess}
@@ -180,7 +167,7 @@ export const NewVideo = ({ categories }) => {
         onClose={handleCloseSuccess}
       >
         <Alert onClose={handleCloseSuccess} severity="success">
-          Video registrado con éxito
+          Categoría editada con éxito
         </Alert>
       </Snackbar>
       <Snackbar

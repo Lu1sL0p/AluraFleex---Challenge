@@ -1,5 +1,18 @@
 {
-  "category": [],
+  "category": [
+    {
+      "id": "1a3f7d2b-75c3-4b5f-92f4-683418d58c12",
+      "title": "Pull",
+      "description": "Espalda, bícep & antebrazo",
+      "color": "#d3000080"
+    },
+    {
+      "id": "b7e08a2f-8f2d-4dcb-9f0e-75f45a45b11f",
+      "title": "Push",
+      "description": "Pecho, hombro & trícep",
+      "color": "#322bff80"
+    }
+  ],
   "video": [
     {
       "id": "cd23a924-3a3d-4e91-bc84-18e33d14cdef",
@@ -96,14 +109,6 @@
       "title": "Elevación lateral con mancuerna",
       "description": "Uno de los ejercicios que no puedes saltarte al trabajar tus hombros son las elevaciones laterales con mancuerna, aprende cómo hacerla.",
       "link": "https://www.youtube.com/watch?v=hgLpdwMtEEs"
-    },
-    {
-      "id": "efdea1e9-7673-40b0-8b55-3a38cfeada53",
-      "title": "adfasdfads",
-      "link": "http://localhost:5173/editcontent",
-      "image": "http://localhost:5173/editcontenthttp://localhost:5173/editcontent",
-      "category": "Base de datos",
-      "description": "http://localhost:5173/editcontenthttp://localhost:5173/editcontent"
     }
   ]
 }

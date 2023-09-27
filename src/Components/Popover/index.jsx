@@ -20,7 +20,7 @@ export const TopCard = styled.div`
   margin-bottom: 15px;
 `;
 export const Video = styled.img`
-  height: 100%;
+  height: 180px;
   width: 100%;
   object-fit: cover;
   border: 1.5px solid white;
