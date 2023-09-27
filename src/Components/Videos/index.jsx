@@ -28,7 +28,6 @@ const Container = styled(CategoryContainer)`
   }
 `;
 
-
 export const Videos = () => {
   const showVideo = useContext(VideoContext);
 
