@@ -130,7 +130,7 @@ export const Category = ({ title, category, color, muscle }) => {
                   video.title,
                   title,
                   color,
-                  video.video
+                  video.link
                 );
               }}
             >
